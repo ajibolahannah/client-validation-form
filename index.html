@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+  <!-- <meta http-equiv="refresh" content="2";> -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body{
+      background-color:rgb(255,121,120) ;
+      background-image: url(./images/bg-intro-desktop.png);
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+    .content{
+      display:flex ;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .learn{
+      color: white;
+      text-shadow: 2px 2px 3px black;
+      width: 30%;
+    }
+    h1{
+      font-weight: 900;
+      font-size: 3em;
+    }
+    p{
+      font-weight: 500;
+    }
+    header{
+      background-color: rgb(93,84,163);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 7px 5px 10px 3px rgba(0,0,0,0.3); 
+      margin: 5px;
+    }
+    input{    
+      padding: 5px;
+      width: 80%;
+      margin: 2%;
+      height: 20px;
+      outline: none;
+     
+    }
+    form{
+       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px;
+     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3); 
+      height: max-content;
+
+    }
+    button{
+      text-align: center;
+      background-color: rgb(55,204,138);
+      color: white;
+      border: none;
+      width: 84%;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    button:hover{
+      background-color: rgb(55, 130, 93);
+    }
+    span{color: rgb(228,130,135);}
+
+
+@media (max-width: 760px) {
+  
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .learn {
+    width: 90%;
+    font-size: 1.5em; 
+    text-align: center;
+    
+  }
+
+  h1 {
+    font-size: 2em; 
+  padding-top: 38px;
+  }
+
+  p {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  header {
+    font-size: 0.9em;
+    padding: 12px;
+    margin: 5px ;
+  }
+
+  form {
+   min-height: 500px;
+    padding: 15px;
+  }
+
+  input {
+   padding: 10px;
+    width: 90%;
+    margin: 10px 0;
+    height: 40px;
+    outline: none;
+    
+  }
+
+  button {
+    width: 95%;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  span {
+    font-size: 0.9em;
+  }
+}
+@media (max-width:600px) {
+  h1{
+    padding-top: 17rem;
+  }
+}
+
+
+   
+  </style>
+</head>
+<body>
+  <main class="content">
+   <div class="learn">
+      <h1>Learn to code by  watching others
+      </h1>
+      <p> See how experienced developers solve problems in real-time. Watching scripted tutorials is great,  but understanding how developers think is invaluable.
+      </p>
+   </div>
+  <div>
+    <header> Try it free 7 days then $20/mo. thereafter
+    </header>
+    <form action="">
+      <input type="text" placeholder="First Name" required id="firstName" ><span id="firstError" style="color:red; font-size:1rem;"></span>
+      <input type="text" placeholder="Last Name" required id="lastName" >
+      <span id="lastError" style="color:red; font-size:1rem;"></span>
+      <input type="email" placeholder="Email Address" required id="email" >
+      <span id="emailError" style="color:red; font-size:1rem;"></span>
+      <input type="password" placeholder="Password" required id="password" >
+      <span id="passwordError" style="color:red; font-size:1rem;"></span>
+      <button id="btn"> Claim your free trial 
+    </button>
+     <p>  By clicking the button, you are agreeing to our <span> Terms and Services</span></p>
+    </form> 
+   
+  </div>
+  </main>
+
+</body>
+<script>
+
+ let check = document.getElementById('btn')
+ let firstError = document.getElementById('firstError')
+ let lastError = document.getElementById('lastError')
+  let emailError = document.getElementById('emailError')
+   let passwordError = document.getElementById('passwordError')
+
+
+ check.addEventListener("click", function(e) {
+    e.preventDefault()
+    
+  let first = document.getElementById('firstName')
+  let email = document.getElementById('email')
+  let last = document.getElementById('lastName') 
+  let password = document.getElementById('password')
+   let isValid = true;
+
+ if(first.value === ""){
+  first.style.borderColor = "red"
+  firstError.innerText = "First Name cannot be empty"
+ }else {
+    first.style.borderColor = "rgb(228,228,228)";
+    firstError.innerText = "";
+ }
+
+ if(last.value === ""){
+  last.style.borderColor = "red"
+  lastError.innerText = "Last Name cannot be empty"
+  isValid = false;
+ }else {
+    last.style.borderColor = "rgb(228,228,228)";
+    lastError.innerText = "";
+ }
+ 
+ 
+ if(email.value === "" ){
+  email.style.borderColor = "red"
+  emailError.innerText = "Looks like this is not an email"
+  isValid = false;
+ }else {
+    email.style.borderColor = "rgb(228,228,228)";
+    emailError.innerText = "";
+ }
+
+ if(password.value === ""){
+  password.style.borderColor = "red"
+  passwordError.innerText = "Password cannot be empty"
+  isValid = false;
+ }else {
+    password.style.borderColor = "rgb(228,228,228)";
+    passwordError.innerText = "";
+ }
+   if(isValid) {
+        alert("Form successfully submitted!")
+          window.location.reload();
+    }
+
+    })
+
+
+
+</script>
+</html>
