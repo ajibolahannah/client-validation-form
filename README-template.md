@@ -35,7 +35,7 @@ Any input field is empty: "[Field Name] cannot be empty"
 The email address is not formatted correctly: "Looks like this is not an email"
 ### Screenshot
 
-![](./images/Screenshot%202026-01-06%20120146.png)
+![](./Screenshot%202026-01-06%20120146.png)
 
 
 
